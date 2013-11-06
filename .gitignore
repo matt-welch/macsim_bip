@@ -1,3 +1,4 @@
 *.swp
 *~
 source_archives/*
+foo/*
