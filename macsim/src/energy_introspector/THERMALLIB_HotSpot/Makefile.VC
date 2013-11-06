@@ -1,0 +1,116 @@
+# This is an 'nmake' makefile for compiling HotSpot 
+# on Windows (./Makefile.VC) using VC++. It is written 
+# assuming the absence of a math acceleration engine. 
+# If you have an acceleration engine installed and 
+# would like to utilize it, please refer to the 
+# Makefile for Linux/UNIX (./Makefile) and set the 
+# appropriate path and flag options. Also, if you 
+# have gcc on windows, please use the Makefile for
+# Linux/UNIX instead of this.
+
+# Compiler flags
+MATHACCEL	= none
+INCDIR		= 
+LIBDIR		= 
+LIBS		= 
+EXTRAFLAGS	= 
+CC 			= cl /nologo
+!IFDEF DEBUG
+OFLAGS		= /Od /Zi
+!ELSE
+OFLAGS		= /Ox
+!ENDIF
+RM			= del /f /q
+AR			= lib /nologo
+OEXT		= obj
+LEXT		= a
+
+# Verbosity level [0-3]
+!IFNDEF VERBOSE
+VERBOSE	= 1
+!ENDIF
+
+!IFDEF INCDIR
+INCDIRFLAG = /I$(INCDIR)
+!ENDIF
+
+!IFDEF LIBDIR
+LIBDIRFLAG = /link/LIBPATH:$(LIBDIR)
+!ENDIF
+
+CFLAGS	= $(OFLAGS) $(EXTRAFLAGS) $(INCDIRFLAG) $(LIBDIRFLAG) /DVERBOSE=$(VERBOSE) /DMATHACCEL=0
+
+# sources, objects, headers and inputs
+
+# HotFloorplan
+FLPSRC	= flp.c flp_desc.c npe.c shape.c 
+FLPOBJ	= flp.$(OEXT) flp_desc.$(OEXT) npe.$(OEXT) shape.$(OEXT) 
+FLPHDR	= flp.h npe.h shape.h
+FLPIN = ev6.desc avg.p
+
+# HotSpot
+TEMPSRC	= temperature.c RCutil.c
+TEMPOBJ	= temperature.$(OEXT) RCutil.$(OEXT)
+TEMPHDR = temperature.h
+TEMPIN	=
+
+#	Package model
+PACKSRC	=	package.c
+PACKOBJ	=	package.$(OEXT)
+PACKHDR	=	package.h
+PACKIN	=	
+
+# HotSpot block model
+BLKSRC = temperature_block.c 
+BLKOBJ = temperature_block.$(OEXT) 
+BLKHDR	= temperature_block.h
+BLKIN	= ev6.flp gcc.ptrace
+
+# HotSpot grid model
+GRIDSRC = temperature_grid.c
+GRIDOBJ = temperature_grid.$(OEXT)
+GRIDHDR	= temperature_grid.h
+GRIDIN	= layer.lcf example.lcf example.flp example.ptrace
+
+# Miscellaneous
+MISCSRC = util.c wire.c
+MISCOBJ = util.$(OEXT) wire.$(OEXT)
+MISCHDR = util.h wire.h
+MISCIN	= hotspot.config package.config
+
+# all objects
+OBJ	= $(TEMPOBJ) $(BLKOBJ) $(GRIDOBJ) $(FLPOBJ) $(PACKOBJ) $(MISCOBJ)
+
+# targets
+all:	hotspot hotfloorplan lib
+
+hotspot:	hotspot.$(OEXT) $(OBJ)
+	$(CC) $(CFLAGS) /Fehotspot hotspot.$(OEXT) $(OBJ) $(LIBS)
+
+hotfloorplan:	hotfloorplan.$(OEXT) $(OBJ)
+	$(CC) $(CFLAGS) /Fehotfloorplan hotfloorplan.$(OEXT) $(OBJ) $(LIBS)
+
+lib: 	hotspot hotfloorplan
+	$(RM) libhotspot.$(LEXT)
+	$(AR) -out:libhotspot.$(LEXT) $(OBJ)
+
+.c.$(OEXT):
+	$(CC) $(CFLAGS) /c $*.c
+
+.cpp.$(OEXT):
+	$(CC) $(CFLAGS) /c $*.cpp
+
+filelist:
+	@echo $(FLPSRC) $(TEMPSRC) $(BLKSRC) $(GRIDSRC) $(PACKSRC) $(MISCSRC) \
+		  $(FLPHDR) $(TEMPHDR) $(BLKHDR) $(GRIDHDR) $(PACKHDR) $(MISCHDR) \
+		  $(FLPIN) $(TEMPIN) $(BLKIN) $(GRIDIN) $(PACKIN) $(MISCIN) \
+		  hotspot.h hotspot.c hotfloorplan.h hotfloorplan.c \
+		  sim-template_block.c \
+		  tofig.pl grid_thermal_map.pl \
+		  Makefile Makefile.VC
+clean:
+	$(RM) *.$(OEXT) *.obj core *~ Makefile.bak hotspot hotfloorplan libhotspot.$(LEXT)
+
+cleano:
+	$(RM) *.$(OEXT) *.obj
+

@@ -1,0 +1,8 @@
+#include "THERMALLIB_3DICE.h"
+#include "THERMALLIB_3DICE.src"
+
+THERMALLIB_3DICE::THERMALLIB_3DICE
+{
+
+}
+

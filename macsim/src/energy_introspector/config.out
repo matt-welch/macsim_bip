@@ -1,0 +1,695 @@
+
+### pre_config processing ###
+creating pseudo module core0:fetch
+creating pseudo module core0:decode
+creating pseudo module core0:renaming
+creating pseudo module core0:schedule
+creating pseudo module core0:memory
+creating pseudo module core0:execute
+creating pseudo module core0:program_counter
+creating pseudo module core0:byteQ
+creating pseudo module core0:BQ2PD
+creating pseudo module core0:PD2IQ
+creating pseudo module core0:instQ
+creating pseudo module core0:bpred1
+creating pseudo module core0:BTB
+creating pseudo module core0:RAS
+creating pseudo module core0:ITLB
+creating pseudo module core0:ICache
+creating pseudo module core0:ICache:missbuffer
+creating pseudo module core0:IQ2ID
+creating pseudo module core0:instruction_decoder
+creating pseudo module core0:uop_sequencer
+creating pseudo module core0:operand_decoder
+creating pseudo module core0:ID2uQ
+creating pseudo module core0:uopQ
+creating pseudo module core0:uQ2RR
+creating pseudo module core0:RAT
+creating pseudo module core0:operand_dependency
+creating pseudo module core0:freelist
+creating pseudo module core0:IRF
+creating pseudo module core0:FRF
+creating pseudo module core0:GPREG
+creating pseudo module core0:RR2RS
+creating pseudo module core0:ARF2RS
+creating pseudo module core0:ROB2RS
+creating pseudo module core0:RS
+creating pseudo module core0:issue_select
+creating pseudo module core0:payload
+creating pseudo module core0:FPU
+creating pseudo module core0:ALU
+creating pseudo module core0:MUL
+creating pseudo module core0:FU2ROB
+creating pseudo module core0:ROB
+creating pseudo module core0:commit_select
+creating pseudo module core0:ROB2CM
+creating pseudo module core0:loadQ
+creating pseudo module core0:LQ2ROB
+creating pseudo module core0:LQ2L1
+creating pseudo module core0:storeQ
+creating pseudo module core0:SQ2L1
+creating pseudo module core0:SQ2LQ
+creating pseudo module core0:DTLB
+creating pseudo module core0:DCache
+creating pseudo module core0:DCache:missbuffer
+creating pseudo module core0:DCache:linefill
+creating pseudo module core0:DCache:writeback
+creating pseudo module core0:L12LQ
+creating pseudo module core0:L2
+creating pseudo module core0:L2:linefill
+creating pseudo module core0:L2:writeback
+creating pseudo module core0:exec_bypass
+creating pseudo module core0:load_bypass
+creating pseudo module L3:0
+creating pseudo module L3:linefill:0
+creating pseudo module L3:writeback:0
+creating pseudo module MemCon:0
+
+### post_config processing ###
+initializing pseudo module core0:fetch
+initializing pseudo module core0:decode
+initializing pseudo module core0:renaming
+initializing pseudo module core0:schedule
+initializing pseudo module core0:memory
+initializing pseudo module core0:execute
+initializing pseudo module core0:program_counter
+initializing pseudo module core0:byteQ
+initializing pseudo module core0:BQ2PD
+initializing pseudo module core0:PD2IQ
+initializing pseudo module core0:instQ
+initializing pseudo module core0:bpred1
+initializing pseudo module core0:BTB
+initializing pseudo module core0:RAS
+initializing pseudo module core0:ITLB
+initializing pseudo module core0:ICache
+initializing pseudo module core0:ICache:missbuffer
+initializing pseudo module core0:IQ2ID
+initializing pseudo module core0:instruction_decoder
+initializing pseudo module core0:uop_sequencer
+initializing pseudo module core0:operand_decoder
+initializing pseudo module core0:ID2uQ
+initializing pseudo module core0:uopQ
+initializing pseudo module core0:uQ2RR
+initializing pseudo module core0:RAT
+initializing pseudo module core0:operand_dependency
+initializing pseudo module core0:freelist
+initializing pseudo module core0:IRF
+initializing pseudo module core0:FRF
+initializing pseudo module core0:GPREG
+initializing pseudo module core0:RR2RS
+initializing pseudo module core0:ARF2RS
+initializing pseudo module core0:ROB2RS
+initializing pseudo module core0:RS
+initializing pseudo module core0:issue_select
+initializing pseudo module core0:payload
+initializing pseudo module core0:FPU
+initializing pseudo module core0:ALU
+initializing pseudo module core0:MUL
+initializing pseudo module core0:FU2ROB
+initializing pseudo module core0:ROB
+initializing pseudo module core0:commit_select
+initializing pseudo module core0:ROB2CM
+initializing pseudo module core0:loadQ
+initializing pseudo module core0:LQ2ROB
+initializing pseudo module core0:LQ2L1
+initializing pseudo module core0:storeQ
+initializing pseudo module core0:SQ2L1
+initializing pseudo module core0:SQ2LQ
+initializing pseudo module core0:DTLB
+initializing pseudo module core0:DCache
+initializing pseudo module core0:DCache:missbuffer
+initializing pseudo module core0:DCache:linefill
+initializing pseudo module core0:DCache:writeback
+initializing pseudo module core0:L12LQ
+initializing pseudo module core0:L2
+initializing pseudo module core0:L2:linefill
+initializing pseudo module core0:L2:writeback
+initializing pseudo module core0:exec_bypass
+initializing pseudo module core0:load_bypass
+initializing pseudo module L3:0
+initializing pseudo module L3:linefill:0
+initializing pseudo module L3:writeback:0
+initializing pseudo module MemCon:0
+### CONFIGURATION SUMMARY ###
+module L3:0
+  area = 87.589105mm^2
+  energy_library: mcpat
+  unit_energy.read = 3873.666pJ (TDP = 13.558mW)
+  unit_energy.write = 3898.725pJ (TDP = 13.646mW)
+  unit_energy.read_tag = 29.353pJ
+  unit_energy.write_tag = 59.427pJ
+  unit_energy.leakage = 47983.775pJ (167.943213mW) at 340.0K
+  TDP total = 195.147mW (dynamic = 27.203mW, leakage = 167.943mW)
+  partition: n/a
+module L3:linefill:0
+  area = 0.325470mm^2
+  energy_library: mcpat
+  unit_energy.read =  6.786pJ (TDP =  0.024mW)
+  unit_energy.write =  8.855pJ (TDP =  0.031mW)
+  unit_energy.search =  9.835pJ (TDP =  0.034mW)
+  unit_energy.read_tag =  6.786pJ
+  unit_energy.write_tag =  8.855pJ
+  unit_energy.leakage = 152.708pJ (0.534479mW) at 340.0K
+  TDP total =  0.624mW (dynamic =  0.089mW, leakage =  0.534mW)
+  partition: n/a
+module L3:writeback:0
+  area = 0.325470mm^2
+  energy_library: mcpat
+  unit_energy.read =  6.786pJ (TDP =  0.024mW)
+  unit_energy.write =  8.855pJ (TDP =  0.031mW)
+  unit_energy.search =  9.835pJ (TDP =  0.034mW)
+  unit_energy.read_tag =  6.786pJ
+  unit_energy.write_tag =  8.855pJ
+  unit_energy.leakage = 152.708pJ (0.534479mW) at 340.0K
+  TDP total =  0.624mW (dynamic =  0.089mW, leakage =  0.534mW)
+  partition: n/a
+module MemCon:0
+  area = 3.772373mm^2
+  energy_library: mcpat
+  unit_energy.read = 5034.078pJ (TDP = 1328.623mW)
+  unit_energy.write = 5045.569pJ
+  unit_energy.leakage = 72.027pJ (144.054821mW) at 340.0K
+  TDP total = 1472.678mW (dynamic = 1328.623mW, leakage = 144.055mW)
+  partition: n/a
+module core0:ALU
+  area = 0.706306mm^2
+  energy_library: mcpat
+  unit_energy.baseline = 20.108pJ (TDP = 70.378mW)
+  unit_energy.read = 96.857pJ (TDP = 1016.997mW)
+  unit_energy.write = 96.857pJ
+  unit_energy.leakage = 141.962pJ (496.866456mW) at 340.0K
+  TDP total = 1584.242mW (dynamic = 1087.375mW, leakage = 496.866mW)
+  partition: n/a
+module core0:ARF2RS
+  area = 0.011291mm^2
+  energy_library: mcpat
+  unit_energy.read =  1.728pJ (TDP = 72.588mW)
+  unit_energy.write =  1.728pJ
+  unit_energy.leakage =  1.296pJ (4.537599mW) at 340.0K
+  TDP total = 77.126mW (dynamic = 72.588mW, leakage =  4.538mW)
+  partition: n/a
+module core0:BQ2PD
+  area = 0.004704mm^2
+  energy_library: mcpat
+  unit_energy.read =  8.641pJ (TDP = 30.245mW)
+  unit_energy.write =  8.641pJ
+  unit_energy.leakage =  0.540pJ (1.890666mW) at 340.0K
+  TDP total = 32.136mW (dynamic = 30.245mW, leakage =  1.891mW)
+  partition: n/a
+module core0:BTB
+  area = 0.068282mm^2
+  energy_library: mcpat
+  unit_energy.read = 14.812pJ (TDP = 51.842mW)
+  unit_energy.write = 41.772pJ (TDP = 146.203mW)
+  unit_energy.read_tag =  6.005pJ
+  unit_energy.write_tag = 32.685pJ
+  unit_energy.leakage =  2.978pJ (10.421605mW) at 340.0K
+  TDP total = 208.466mW (dynamic = 198.045mW, leakage = 10.422mW)
+  partition: n/a
+module core0:DCache
+  area = 16.809050mm^2
+  energy_library: mcpat
+  unit_energy.read = 2493.916pJ (TDP = 8728.706mW)
+  unit_energy.write = 2501.586pJ (TDP = 8755.550mW)
+  unit_energy.read_tag =  8.023pJ
+  unit_energy.write_tag = 19.753pJ
+  unit_energy.leakage = 259.897pJ (909.641090mW) at 340.0K
+  TDP total = 18393.897mW (dynamic = 17484.256mW, leakage = 909.641mW)
+  partition: n/a
+module core0:DCache:linefill
+  area = 0.619921mm^2
+  energy_library: mcpat
+  unit_energy.read = 13.412pJ (TDP = 46.943mW)
+  unit_energy.write = 19.122pJ (TDP = 66.928mW)
+  unit_energy.search = 20.252pJ (TDP = 141.764mW)
+  unit_energy.read_tag = 13.412pJ
+  unit_energy.write_tag = 19.122pJ
+  unit_energy.leakage =  2.128pJ (7.447066mW) at 340.0K
+  TDP total = 263.082mW (dynamic = 255.635mW, leakage =  7.447mW)
+  partition: n/a
+module core0:DCache:missbuffer
+  area = 0.377814mm^2
+  energy_library: mcpat
+  unit_energy.read = 13.200pJ (TDP = 46.199mW)
+  unit_energy.write = 18.270pJ (TDP = 63.946mW)
+  unit_energy.search = 19.597pJ (TDP = 68.590mW)
+  unit_energy.read_tag = 13.200pJ
+  unit_energy.write_tag = 18.270pJ
+  unit_energy.leakage =  1.707pJ (5.975755mW) at 340.0K
+  TDP total = 184.711mW (dynamic = 178.735mW, leakage =  5.976mW)
+  partition: n/a
+module core0:DCache:writeback
+  area = 0.325481mm^2
+  energy_library: mcpat
+  unit_energy.read = 12.171pJ (TDP = 42.597mW)
+  unit_energy.write = 16.849pJ (TDP = 58.971mW)
+  unit_energy.search = 18.568pJ (TDP = 64.988mW)
+  unit_energy.read_tag = 12.171pJ
+  unit_energy.write_tag = 16.849pJ
+  unit_energy.leakage =  1.592pJ (5.572358mW) at 340.0K
+  TDP total = 172.128mW (dynamic = 166.555mW, leakage =  5.572mW)
+  partition: n/a
+module core0:DTLB
+  area = 0.148793mm^2
+  energy_library: mcpat
+  unit_energy.read = 17.248pJ (TDP = 120.736mW)
+  unit_energy.write = 51.915pJ (TDP = 363.405mW)
+  unit_energy.read_tag =  6.802pJ
+  unit_energy.write_tag = 40.842pJ
+  unit_energy.leakage =  3.874pJ (13.560557mW) at 340.0K
+  TDP total = 497.701mW (dynamic = 484.140mW, leakage = 13.561mW)
+  partition: n/a
+module core0:FPU
+  area = 2.329250mm^2
+  energy_library: mcpat
+  unit_energy.baseline = 60.324pJ (TDP = 211.134mW)
+  unit_energy.read = 290.571pJ (TDP = 1016.997mW)
+  unit_energy.write = 290.571pJ
+  unit_energy.leakage = 117.040pJ (409.640739mW) at 340.0K
+  TDP total = 1637.772mW (dynamic = 1228.131mW, leakage = 409.641mW)
+  partition: n/a
+module core0:FRF
+  area = 0.937316mm^2
+  energy_library: mcpat
+  unit_energy.read = 15.284pJ (TDP = 641.924mW)
+  unit_energy.write = 21.732pJ (TDP = 456.363mW)
+  unit_energy.leakage =  2.653pJ (9.286077mW) at 340.0K
+  TDP total = 1107.573mW (dynamic = 1098.287mW, leakage =  9.286mW)
+  partition: n/a
+module core0:FU2ROB
+  area = 0.007674mm^2
+  energy_library: mcpat
+  unit_energy.read =  2.349pJ (TDP = 49.337mW)
+  unit_energy.write =  2.349pJ
+  unit_energy.leakage =  0.881pJ (3.084150mW) at 340.0K
+  TDP total = 52.421mW (dynamic = 49.337mW, leakage =  3.084mW)
+  partition: n/a
+module core0:GPREG
+  area = 0.242217mm^2
+  energy_library: mcpat
+  unit_energy.read =  5.796pJ (TDP = 243.438mW)
+  unit_energy.write =  9.735pJ (TDP = 136.294mW)
+  unit_energy.leakage =  0.755pJ (2.641207mW) at 340.0K
+  TDP total = 382.373mW (dynamic = 379.732mW, leakage =  2.641mW)
+  partition: n/a
+module core0:ICache
+  area = 6.880941mm^2
+  energy_library: mcpat
+  unit_energy.read = 986.045pJ (TDP = 3451.157mW)
+  unit_energy.write = 983.000pJ (TDP = 3440.499mW)
+  unit_energy.read_tag =  4.492pJ
+  unit_energy.write_tag = 13.984pJ
+  unit_energy.leakage = 97.687pJ (341.904586mW) at 340.0K
+  TDP total = 7233.561mW (dynamic = 6891.656mW, leakage = 341.905mW)
+  partition: n/a
+module core0:ICache:missbuffer
+  area = 0.377814mm^2
+  energy_library: mcpat
+  unit_energy.read = 13.200pJ (TDP = 46.199mW)
+  unit_energy.write = 18.270pJ (TDP = 63.946mW)
+  unit_energy.search = 19.597pJ (TDP = 68.590mW)
+  unit_energy.read_tag = 13.200pJ
+  unit_energy.write_tag = 18.270pJ
+  unit_energy.leakage =  1.707pJ (5.975755mW) at 340.0K
+  TDP total = 184.711mW (dynamic = 178.735mW, leakage =  5.976mW)
+  partition: n/a
+module core0:ID2uQ
+  area = 0.075272mm^2
+  energy_library: mcpat
+  unit_energy.read =  1.080pJ (TDP = 483.921mW)
+  unit_energy.write =  1.080pJ
+  unit_energy.leakage =  8.643pJ (30.250663mW) at 340.0K
+  TDP total = 514.172mW (dynamic = 483.921mW, leakage = 30.251mW)
+  partition: n/a
+module core0:IQ2ID
+  area = 0.010820mm^2
+  energy_library: mcpat
+  unit_energy.read =  4.969pJ (TDP = 69.564mW)
+  unit_energy.write =  4.969pJ
+  unit_energy.leakage =  1.242pJ (4.348533mW) at 340.0K
+  TDP total = 73.912mW (dynamic = 69.564mW, leakage =  4.349mW)
+  partition: n/a
+module core0:IRF
+  area = 1.974164mm^2
+  energy_library: mcpat
+  unit_energy.read = 20.979pJ (TDP = 1321.686mW)
+  unit_energy.write = 30.129pJ (TDP = 949.051mW)
+  unit_energy.leakage =  4.367pJ (15.283292mW) at 340.0K
+  TDP total = 2286.020mW (dynamic = 2270.737mW, leakage = 15.283mW)
+  partition: n/a
+module core0:ITLB
+  area = 0.068282mm^2
+  energy_library: mcpat
+  unit_energy.read = 14.812pJ (TDP = 51.842mW)
+  unit_energy.write = 41.772pJ (TDP = 146.203mW)
+  unit_energy.read_tag =  6.005pJ
+  unit_energy.write_tag = 32.685pJ
+  unit_energy.leakage =  2.978pJ (10.421605mW) at 340.0K
+  TDP total = 208.466mW (dynamic = 198.045mW, leakage = 10.422mW)
+  partition: n/a
+module core0:L12LQ
+  area = 0.001882mm^2
+  energy_library: mcpat
+  unit_energy.read =  3.457pJ (TDP = 12.098mW)
+  unit_energy.write =  3.457pJ
+  unit_energy.leakage =  0.216pJ (0.756267mW) at 340.0K
+  TDP total = 12.854mW (dynamic = 12.098mW, leakage =  0.756mW)
+  partition: n/a
+module core0:L2
+  area = 22.836337mm^2
+  energy_library: mcpat
+  unit_energy.read = 2617.711pJ (TDP = 9161.987mW)
+  unit_energy.write = 2665.223pJ (TDP = 9328.280mW)
+  unit_energy.read_tag = 14.239pJ
+  unit_energy.write_tag = 65.134pJ
+  unit_energy.leakage = 350.570pJ (1226.996053mW) at 340.0K
+  TDP total = 19717.263mW (dynamic = 18490.267mW, leakage = 1226.996mW)
+  partition: n/a
+module core0:L2:linefill
+  area = 0.325481mm^2
+  energy_library: mcpat
+  unit_energy.read = 12.171pJ (TDP = 42.597mW)
+  unit_energy.write = 16.849pJ (TDP = 58.971mW)
+  unit_energy.search = 18.568pJ (TDP = 64.988mW)
+  unit_energy.read_tag = 12.171pJ
+  unit_energy.write_tag = 16.849pJ
+  unit_energy.leakage =  1.592pJ (5.572358mW) at 340.0K
+  TDP total = 172.128mW (dynamic = 166.555mW, leakage =  5.572mW)
+  partition: n/a
+module core0:L2:writeback
+  area = 0.325481mm^2
+  energy_library: mcpat
+  unit_energy.read = 12.171pJ (TDP = 42.597mW)
+  unit_energy.write = 16.849pJ (TDP = 58.971mW)
+  unit_energy.search = 18.568pJ (TDP = 64.988mW)
+  unit_energy.read_tag = 12.171pJ
+  unit_energy.write_tag = 16.849pJ
+  unit_energy.leakage =  1.592pJ (5.572358mW) at 340.0K
+  TDP total = 172.128mW (dynamic = 166.555mW, leakage =  5.572mW)
+  partition: n/a
+module core0:LQ2L1
+  area = 0.001882mm^2
+  energy_library: mcpat
+  unit_energy.read =  3.457pJ (TDP = 12.098mW)
+  unit_energy.write =  3.457pJ
+  unit_energy.leakage =  0.216pJ (0.756267mW) at 340.0K
+  TDP total = 12.854mW (dynamic = 12.098mW, leakage =  0.756mW)
+  partition: n/a
+module core0:LQ2ROB
+  area = 0.003940mm^2
+  energy_library: mcpat
+  unit_energy.read =  3.619pJ (TDP = 25.330mW)
+  unit_energy.write =  3.619pJ
+  unit_energy.leakage =  0.452pJ (1.583433mW) at 340.0K
+  TDP total = 26.914mW (dynamic = 25.330mW, leakage =  1.583mW)
+  partition: n/a
+module core0:MUL
+  area = 2.118917mm^2
+  energy_library: mcpat
+  unit_energy.baseline = 40.216pJ (TDP = 140.756mW)
+  unit_energy.read = 193.714pJ (TDP = 2033.994mW)
+  unit_energy.write = 193.714pJ
+  unit_energy.leakage = 425.886pJ (1490.599368mW) at 340.0K
+  TDP total = 3665.350mW (dynamic = 2174.750mW, leakage = 1490.599mW)
+  partition: n/a
+module core0:PD2IQ
+  area = 0.010820mm^2
+  energy_library: mcpat
+  unit_energy.read =  4.969pJ (TDP = 69.564mW)
+  unit_energy.write =  4.969pJ
+  unit_energy.leakage =  1.242pJ (4.348533mW) at 340.0K
+  TDP total = 73.912mW (dynamic = 69.564mW, leakage =  4.349mW)
+  partition: n/a
+module core0:RAS
+  area = 0.025400mm^2
+  energy_library: mcpat
+  unit_energy.read =  3.528pJ (TDP = 12.347mW)
+  unit_energy.write =  5.759pJ (TDP = 20.158mW)
+  unit_energy.leakage =  0.304pJ (1.064483mW) at 340.0K
+  TDP total = 33.569mW (dynamic = 32.505mW, leakage =  1.064mW)
+  partition: n/a
+module core0:RAT
+  area = 0.770752mm^2
+  energy_library: mcpat
+  unit_energy.read = 12.810pJ (TDP = 358.679mW)
+  unit_energy.write = 22.898pJ (TDP = 320.571mW)
+  unit_energy.leakage =  1.945pJ (6.806285mW) at 340.0K
+  TDP total = 686.057mW (dynamic = 679.250mW, leakage =  6.806mW)
+  partition: n/a
+module core0:ROB
+  area = 2.264447mm^2
+  energy_library: mcpat
+  unit_energy.read = 46.742pJ (TDP = 1635.977mW)
+  unit_energy.write = 69.143pJ (TDP = 1452.005mW)
+  unit_energy.leakage =  7.790pJ (27.265420mW) at 340.0K
+  TDP total = 3115.247mW (dynamic = 3087.981mW, leakage = 27.265mW)
+  partition: n/a
+module core0:ROB2CM
+  area = 0.007821mm^2
+  energy_library: mcpat
+  unit_energy.read =  3.592pJ (TDP = 50.282mW)
+  unit_energy.write =  3.592pJ
+  unit_energy.leakage =  0.898pJ (3.143233mW) at 340.0K
+  TDP total = 53.426mW (dynamic = 50.282mW, leakage =  3.143mW)
+  partition: n/a
+module core0:ROB2RS
+  area = 0.012526mm^2
+  energy_library: mcpat
+  unit_energy.read =  1.917pJ (TDP = 80.527mW)
+  unit_energy.write =  1.917pJ
+  unit_energy.leakage =  1.438pJ (5.033899mW) at 340.0K
+  TDP total = 85.561mW (dynamic = 80.527mW, leakage =  5.034mW)
+  partition: n/a
+module core0:RR2RS
+  area = 0.003528mm^2
+  energy_library: mcpat
+  unit_energy.read =  1.080pJ (TDP = 22.684mW)
+  unit_energy.write =  1.080pJ
+  unit_energy.leakage =  0.405pJ (1.418000mW) at 340.0K
+  TDP total = 24.102mW (dynamic = 22.684mW, leakage =  1.418mW)
+  partition: n/a
+module core0:RS
+  area = 4.062367mm^2
+  energy_library: mcpat
+  unit_energy.read = 15.252pJ (TDP = 427.045mW)
+  unit_energy.write = 26.477pJ (TDP = 741.359mW)
+  unit_energy.search = 22.776pJ (TDP = 478.305mW)
+  unit_energy.read_tag = 15.252pJ
+  unit_energy.write_tag = 26.477pJ
+  unit_energy.leakage =  8.278pJ (28.974578mW) at 340.0K
+  TDP total = 1675.684mW (dynamic = 1646.709mW, leakage = 28.975mW)
+  partition: n/a
+module core0:SQ2L1
+  area = 0.001882mm^2
+  energy_library: mcpat
+  unit_energy.read =  3.457pJ (TDP = 12.098mW)
+  unit_energy.write =  3.457pJ
+  unit_energy.leakage =  0.216pJ (0.756267mW) at 340.0K
+  TDP total = 12.854mW (dynamic = 12.098mW, leakage =  0.756mW)
+  partition: n/a
+module core0:SQ2LQ
+  area = 0.001882mm^2
+  energy_library: mcpat
+  unit_energy.read =  3.457pJ (TDP = 12.098mW)
+  unit_energy.write =  3.457pJ
+  unit_energy.leakage =  0.216pJ (0.756267mW) at 340.0K
+  TDP total = 12.854mW (dynamic = 12.098mW, leakage =  0.756mW)
+  partition: n/a
+module core0:bpred1
+  area = 14.035023mm^2
+  energy_library: mcpat
+  unit_energy.read = 289.738pJ (TDP = 4056.338mW)
+  unit_energy.write = 242.644pJ (TDP = 849.253mW)
+  unit_energy.leakage = 193.977pJ (678.919404mW) at 340.0K
+  TDP total = 5584.510mW (dynamic = 4905.591mW, leakage = 678.919mW)
+  partition: n/a
+module core0:byteQ
+  area = 0.027360mm^2
+  energy_library: mcpat
+  unit_energy.read =  2.501pJ (TDP = 35.009mW)
+  unit_energy.write =  3.851pJ (TDP = 13.478mW)
+  unit_energy.leakage =  0.172pJ (0.603575mW) at 340.0K
+  TDP total = 49.091mW (dynamic = 48.487mW, leakage =  0.604mW)
+  partition: n/a
+module core0:commit_select
+  area = 0.000000mm^2
+  energy_library: mcpat
+  unit_energy.read = 41.719pJ (TDP = 584.071mW)
+  unit_energy.write = 41.719pJ
+  unit_energy.leakage =  0.397pJ (1.390638mW) at 340.0K
+  TDP total = 585.462mW (dynamic = 584.071mW, leakage =  1.391mW)
+  partition: n/a
+module core0:decode
+  area = 1.076406mm^2
+  energy_library: mcpat
+  unit_energy.read =  0.000pJ
+  unit_energy.write =  0.000pJ
+  unit_energy.leakage = 108.175pJ (378.610847mW) at 340.0K
+  TDP total = 378.611mW (dynamic =  0.000mW, leakage = 378.611mW)
+  partition: n/a
+module core0:exec_bypass
+  area = 0.129916mm^2
+  energy_library: mcpat
+  unit_energy.read = 325.496pJ (TDP = 6835.411mW)
+  unit_energy.write = 325.496pJ
+  unit_energy.leakage = 26.768pJ (93.689438mW) at 340.0K
+  TDP total = 6929.100mW (dynamic = 6835.411mW, leakage = 93.689mW)
+  partition: n/a
+module core0:execute
+  area = 0.598002mm^2
+  energy_library: mcpat
+  unit_energy.read =  0.000pJ
+  unit_energy.write =  0.000pJ
+  unit_energy.leakage = 60.097pJ (210.338962mW) at 340.0K
+  TDP total = 210.339mW (dynamic =  0.000mW, leakage = 210.339mW)
+  partition: n/a
+module core0:fetch
+  area = 1.196004mm^2
+  energy_library: mcpat
+  unit_energy.read =  0.000pJ
+  unit_energy.write =  0.000pJ
+  unit_energy.leakage = 120.194pJ (420.677924mW) at 340.0K
+  TDP total = 420.678mW (dynamic =  0.000mW, leakage = 420.678mW)
+  partition: n/a
+module core0:freelist
+  area = 0.036001mm^2
+  energy_library: mcpat
+  unit_energy.read =  2.017pJ (TDP = 28.235mW)
+  unit_energy.write =  1.901pJ (TDP = 26.610mW)
+  unit_energy.leakage =  0.263pJ (0.921543mW) at 340.0K
+  TDP total = 55.767mW (dynamic = 54.845mW, leakage =  0.922mW)
+  partition: n/a
+module core0:instQ
+  area = 0.211066mm^2
+  energy_library: mcpat
+  unit_energy.read =  8.671pJ (TDP = 121.389mW)
+  unit_energy.write = 13.165pJ (TDP = 184.305mW)
+  unit_energy.leakage =  0.721pJ (2.524758mW) at 340.0K
+  TDP total = 308.218mW (dynamic = 305.694mW, leakage =  2.525mW)
+  partition: n/a
+module core0:instruction_decoder
+  area = 0.462541mm^2
+  energy_library: mcpat
+  unit_energy.read = 30.585pJ (TDP = 107.048mW)
+  unit_energy.write = 30.585pJ
+  unit_energy.leakage = 26.002pJ (91.008590mW) at 340.0K
+  TDP total = 198.057mW (dynamic = 107.048mW, leakage = 91.009mW)
+  partition: n/a
+module core0:issue_select
+  area = 0.000000mm^2
+  energy_library: mcpat
+  unit_energy.read = 15.706pJ (TDP = 439.771mW)
+  unit_energy.write = 15.706pJ
+  unit_energy.leakage =  0.150pJ (0.523534mW) at 340.0K
+  TDP total = 440.295mW (dynamic = 439.771mW, leakage =  0.524mW)
+  partition: n/a
+module core0:loadQ
+  area = 0.253657mm^2
+  energy_library: mcpat
+  unit_energy.read =  3.017pJ (TDP = 21.117mW)
+  unit_energy.write =  4.054pJ (TDP = 28.380mW)
+  unit_energy.search = 10.128pJ (TDP = 70.893mW)
+  unit_energy.read_tag =  3.017pJ
+  unit_energy.write_tag =  4.054pJ
+  unit_energy.leakage =  0.769pJ (2.690764mW) at 340.0K
+  TDP total = 123.081mW (dynamic = 120.390mW, leakage =  2.691mW)
+  partition: n/a
+module core0:load_bypass
+  area = 0.021347mm^2
+  energy_library: mcpat
+  unit_energy.read = 320.904pJ (TDP = 1123.163mW)
+  unit_energy.write = 320.904pJ
+  unit_energy.leakage =  4.398pJ (15.394613mW) at 340.0K
+  TDP total = 1138.558mW (dynamic = 1123.163mW, leakage = 15.395mW)
+  partition: n/a
+module core0:memory
+  area = 0.598002mm^2
+  energy_library: mcpat
+  unit_energy.read =  0.000pJ
+  unit_energy.write =  0.000pJ
+  unit_energy.leakage = 60.097pJ (210.338962mW) at 340.0K
+  TDP total = 210.339mW (dynamic =  0.000mW, leakage = 210.339mW)
+  partition: n/a
+module core0:operand_decoder
+  area = 0.001834mm^2
+  energy_library: mcpat
+  unit_energy.read = 29.590pJ (TDP = 103.563mW)
+  unit_energy.write = 29.590pJ
+  unit_energy.leakage =  0.102pJ (0.357729mW) at 340.0K
+  TDP total = 103.921mW (dynamic = 103.563mW, leakage =  0.358mW)
+  partition: n/a
+module core0:operand_dependency
+  area = 0.000000mm^2
+  energy_library: mcpat
+  unit_energy.read = 14.967pJ (TDP = 838.158mW)
+  unit_energy.write = 14.967pJ
+  unit_energy.leakage =  1.959pJ (6.854868mW) at 340.0K
+  TDP total = 845.013mW (dynamic = 838.158mW, leakage =  6.855mW)
+  partition: n/a
+module core0:payload
+  area = 0.013320mm^2
+  energy_library: mcpat
+  unit_energy.read =  4.078pJ (TDP = 85.631mW)
+  unit_energy.write =  4.078pJ
+  unit_energy.leakage =  1.529pJ (5.352949mW) at 340.0K
+  TDP total = 90.984mW (dynamic = 85.631mW, leakage =  5.353mW)
+  partition: n/a
+module core0:program_counter
+  area = 0.001882mm^2
+  energy_library: mcpat
+  unit_energy.read =  3.457pJ (TDP = 12.098mW)
+  unit_energy.write =  3.457pJ
+  unit_energy.leakage =  0.216pJ (0.756267mW) at 340.0K
+  TDP total = 12.854mW (dynamic = 12.098mW, leakage =  0.756mW)
+  partition: n/a
+module core0:renaming
+  area = 0.538200mm^2
+  energy_library: mcpat
+  unit_energy.read =  0.000pJ
+  unit_energy.write =  0.000pJ
+  unit_energy.leakage = 54.087pJ (189.304529mW) at 340.0K
+  TDP total = 189.305mW (dynamic =  0.000mW, leakage = 189.305mW)
+  partition: n/a
+module core0:schedule
+  area = 1.076406mm^2
+  energy_library: mcpat
+  unit_energy.read =  0.000pJ
+  unit_energy.write =  0.000pJ
+  unit_energy.leakage = 108.175pJ (378.610847mW) at 340.0K
+  TDP total = 378.611mW (dynamic =  0.000mW, leakage = 378.611mW)
+  partition: n/a
+module core0:storeQ
+  area = 0.047927mm^2
+  energy_library: mcpat
+  unit_energy.read =  1.874pJ (TDP =  6.560mW)
+  unit_energy.write =  2.336pJ (TDP =  8.177mW)
+  unit_energy.search =  7.811pJ (TDP = 27.337mW)
+  unit_energy.read_tag =  1.874pJ
+  unit_energy.write_tag =  2.336pJ
+  unit_energy.leakage =  0.404pJ (1.415712mW) at 340.0K
+  TDP total = 43.489mW (dynamic = 42.073mW, leakage =  1.416mW)
+  partition: n/a
+module core0:uQ2RR
+  area = 0.002823mm^2
+  energy_library: mcpat
+  unit_energy.read =  0.864pJ (TDP = 18.147mW)
+  unit_energy.write =  0.864pJ
+  unit_energy.leakage =  0.324pJ (1.134400mW) at 340.0K
+  TDP total = 19.281mW (dynamic = 18.147mW, leakage =  1.134mW)
+  partition: n/a
+module core0:uopQ
+  area = 0.043444mm^2
+  energy_library: mcpat
+  unit_energy.read =  2.466pJ (TDP = 51.788mW)
+  unit_energy.write =  3.974pJ (TDP = 55.633mW)
+  unit_energy.leakage =  0.207pJ (0.725442mW) at 340.0K
+  TDP total = 108.147mW (dynamic = 107.421mW, leakage =  0.725mW)
+  partition: n/a
+module core0:uop_sequencer
+  area = 0.001834mm^2
+  energy_library: mcpat
+  unit_energy.read = 29.590pJ (TDP = 103.563mW)
+  unit_energy.write = 29.590pJ
+  unit_energy.leakage =  0.102pJ (0.357729mW) at 340.0K
+  TDP total = 103.921mW (dynamic = 103.563mW, leakage =  0.358mW)
+  partition: n/a

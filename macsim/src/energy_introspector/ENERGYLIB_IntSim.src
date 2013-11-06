@@ -1,0 +1,3 @@
+#include "ENERGYLIB_IntSim/chip.cc"
+#include "ENERGYLIB_IntSim/intsim.cc"
+#include "ENERGYLIB_IntSim/parameters.cc"
