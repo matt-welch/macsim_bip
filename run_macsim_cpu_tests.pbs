@@ -1,0 +1,82 @@
+#!/bin/bash
+# filename: run_macsim_cpu_tests.pbs
+# defautl parameters and trace for testing code changes
+#PBS -l nodes=1:ppn=1
+#PBS -j oe
+#PBS -o output_macsim_cpu_tests.log
+#PBS -l walltime=00:10:00
+#PBS -M mattw0308@gmail.com
+#
+# instructions: 
+# 1) change the PBS -o jobname.log above to reflect your simulation
+# 2) change the PBS -M output email if you want to be notified of errors
+# 3) change the TITLE variable below to reflect the your simulation
+# 4) change the PARAMS_CURRENT and TRACE_CURRENT if you want to
+# run with a different parameter set or trace input
+#
+#
+# Algorithm for runnning simulations with macsim
+# 
+#	enter the title for the simulation
+#	automatically create a directory based on that title within the results directory
+#	copy macsim, params.in, trace_file_list  into that directory from the appropriate directories
+#	run macsim with those parameters
+#	rm macsim to save space (optional)
+#
+TITLE=macsim_cpu_tests_bwaves
+echo
+echo "$TITLE run begin at $(date), PBS_JOBID=$PBS_JOBID"
+
+#--------------
+# constants
+#--------------
+MACSIM_HOME="/home/jwelch4/cse520/research/macsim"
+MACSIM_BINDIR="$MACSIM_HOME/bin"
+MACSIM_BIN="$MACSIM_BINDIR/macsim"
+MACSIM_RESULTS="/home/jwelch4/cse520/research/results"
+MACSIM_OUTDIR="$MACSIM_RESULTS/$TITLE"
+
+#--------------
+# variables
+#--------------
+# the below filenames don't use the variables above because then you can use VIM's
+# autocomplete feature with ^X^F to autocomplete the filenames
+#	default parameter file & trace are in macsim/default_params
+#	additional parameter files are in macsim/params/
+#		params describe machine architecture
+#	additional trace_file_list files are in macsim/trace/trace_files/
+#		trace_file_list is a file containing the number of traces and the
+#		locations of these traces. 
+PARAMS_CURRENT="/home/jwelch4/cse520/research/macsim/default_params/params.in"
+TRACE_CURRENT="/home/jwelch4/cse520/research/macsim/trace/trace_files/trace_file_spec06fp-bwaves"
+
+# a for-loop could go here to loop through multiple parameter files or traces
+echo "macsim home is: $MACSIM_HOME"
+echo "macsim bindir is: $MACSIM_BINDIR"
+echo "macsim binary is: $MACSIM_BIN"
+echo "Output directory is: $MACSIM_OUTDIR"
+# make a results directory of name specified in research/results/TITLE
+mkdir -p $MACSIM_OUTDIR
+PARAMS_IN="$MACSIM_OUTDIR/params.in"
+TRACE_IN="$MACSIM_OUTDIR/trace_file_list"
+echo
+echo "Current params file: $PARAMS_CURRENT"
+echo "Current trace file: $TRACE_CURRENT"
+cat $TRACE_CURRENT
+
+# copy the parameters file, trace_file_list and macsim binary into the results
+# directory
+cp $PARAMS_CURRENT $PARAMS_IN 
+cp $TRACE_CURRENT $TRACE_IN
+cp $MACSIM_BIN $MACSIM_OUTDIR
+
+cd $MACSIM_OUTDIR
+echo "Current Directory is $(pwd)"
+echo "Begin macsim simulation run...."
+echo
+./macsim
+echo
+# don't remove macsim here so we can preserve functioning simulations and copy
+# working binaries if we break it in the modificcation process
+echo "$TITLE run end at $(date)"
+
