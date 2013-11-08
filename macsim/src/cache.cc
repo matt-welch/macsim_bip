@@ -82,6 +82,10 @@ cache_c::cache_c(string name, int num_set, int assoc, int line_size,
     int data_size, int bank_num, bool cache_by_pass, int core_id, Cache_Type cache_type_info,
     bool enable_partition, int num_tiles, int interleave_factor, macsim_c* simBase) 
 {
+  // (SE) initialize BIP counters
+  m_bip_cpu_count = 0;
+  m_bip_gpu_count = 0;
+
   m_simBase = simBase;
 
   DEBUG("Initializing cache called '%s'.\n", name.c_str());
@@ -343,25 +347,47 @@ cache_entry_c* cache_c::find_replacement_line_from_same_type(int set, int appl_i
 void cache_c::initialize_cache_line(cache_entry_c *ins_line, Addr tag, Addr addr, int appl_id,
     bool gpuline, int set_id, bool skip) 
 {
-  ins_line->m_valid            = true;
-  ins_line->m_tag              = tag;
-  ins_line->m_base             = (addr & ~m_offset_mask);
-  ins_line->m_access_counter   = 0;
-  ins_line->m_last_access_time = CYCLE;
-  ins_line->m_pref             = false;
-  ins_line->m_skip             = skip;
+  if(0){  // (SE) temporary hack to implement BIP (remove if want to use LRU/PSEUDO_LRU)
+    ins_line->m_valid            = true;
+    ins_line->m_tag              = tag;
+    ins_line->m_base             = (addr & ~m_offset_mask);
+    ins_line->m_access_counter   = 0;
+    ins_line->m_last_access_time = CYCLE;
+    ins_line->m_pref             = false;
+    ins_line->m_skip             = skip;
 
-  // for heterogeneous simulation
-  ins_line->m_appl_id          = appl_id;
-  ins_line->m_gpuline          = gpuline;
-  if (ins_line->m_gpuline) { 
-    ++m_num_gpu_line;
-    ++m_set[set_id]->m_num_gpu_line;
-  }
-  else {
-    ++m_num_cpu_line;
-    ++m_set[set_id]->m_num_cpu_line;
-  }
+    // for heterogeneous simulation
+    ins_line->m_appl_id          = appl_id;
+    ins_line->m_gpuline          = gpuline;
+    if (ins_line->m_gpuline) { 
+      ++m_num_gpu_line;
+      ++m_set[set_id]->m_num_gpu_line;
+    }
+    else {
+      ++m_num_cpu_line;
+      ++m_set[set_id]->m_num_cpu_line;
+    }
+  }else{  // (SE/AR) BEGIN implement BIP for GPU and CPU    
+    int GPU_EPSILON = 32;
+    int CPU_EPSILON = 32;
+    if(gpuline){  
+      if(m_bip_gpu_count < GPU_EPSILON){    // Insert at LRU    
+        m_bip_gpu_count++;      
+        ins_line->m_last_access_time = 0;     
+      }else{
+        ins_line->m_last_access_time = CYCLE; // Insert at MRU
+        m_bip_gpu_count = 0;
+      }
+    }else{
+      if(m_bip_cpu_count < CPU_EPSILON){    // Insert at LRU 
+        m_bip_cpu_count++;
+        ins_line->m_last_access_time = 0;     
+      }else{
+        ins_line->m_last_access_time = CYCLE; // Insert at MRU
+        m_bip_cpu_count = 0;      
+      }
+    }
+  } // (SE/AR) END implement BIP for GPU and CPU
 }
 
 
