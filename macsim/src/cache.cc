@@ -347,6 +347,7 @@ cache_entry_c* cache_c::find_replacement_line_from_same_type(int set, int appl_i
 void cache_c::initialize_cache_line(cache_entry_c *ins_line, Addr tag, Addr addr, int appl_id,
     bool gpuline, int set_id, bool skip) 
 {
+  cout << "\nTesting USE_BIP value: " << *m_simBase->m_knobs->KNOB_CACHE_USE_BIP;
   if(0){  // (SE) temporary hack to implement BIP (remove if want to use LRU/PSEUDO_LRU)
     ins_line->m_valid            = true;
     ins_line->m_tag              = tag;

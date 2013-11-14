@@ -510,6 +510,11 @@ all_knobs_c::all_knobs_c() {
 	KNOB_HETERO_MEM_PRIORITY_CPU = new KnobTemplate< bool > ("hetero_mem_priority_cpu", false);
 	KNOB_HETERO_MEM_PRIORITY_GPU = new KnobTemplate< bool > ("hetero_mem_priority_gpu", false);
 	KNOB_CACHE_USE_PSEUDO_LRU = new KnobTemplate< bool > ("cache_use_pseudo_lru", false);
+
+  // (SE/ALR): A new parameter defined in params.in which decides whether to use BIP or not
+  KNOB_CACHE_USE_BIP = new KnobTemplate< bool > ("cache_use_bip", true);
+
+
 	KNOB_LOAD_BUF_SIZE = new KnobTemplate< int > ("load_buf_size", 16);
 	KNOB_STORE_BUF_SIZE = new KnobTemplate< int > ("store_buf_size", 12);
 	KNOB_USE_INCOMING_TID_CID_FOR_WB = new KnobTemplate< bool > ("use_incoming_tid_cid_for_wb", false);
@@ -1160,6 +1165,10 @@ all_knobs_c::~all_knobs_c() {
 	delete KNOB_HETERO_MEM_PRIORITY_CPU;
 	delete KNOB_HETERO_MEM_PRIORITY_GPU;
 	delete KNOB_CACHE_USE_PSEUDO_LRU;
+
+  // (SE/ALR): Deleting the parameter we added
+  delete KNOB_CACHE_USE_BIP;
+  
 	delete KNOB_LOAD_BUF_SIZE;
 	delete KNOB_STORE_BUF_SIZE;
 	delete KNOB_USE_INCOMING_TID_CID_FOR_WB;
@@ -1819,6 +1828,10 @@ void all_knobs_c::registerKnobs(KnobsContainer *container) {
 	container->insertKnob( KNOB_HETERO_MEM_PRIORITY_CPU );
 	container->insertKnob( KNOB_HETERO_MEM_PRIORITY_GPU );
 	container->insertKnob( KNOB_CACHE_USE_PSEUDO_LRU );
+
+  // (SE/ALR): Insert the parameter we created for actual use
+  container->insertKnob( KNOB_CACHE_USE_BIP );
+
 	container->insertKnob( KNOB_LOAD_BUF_SIZE );
 	container->insertKnob( KNOB_STORE_BUF_SIZE );
 	container->insertKnob( KNOB_USE_INCOMING_TID_CID_FOR_WB );

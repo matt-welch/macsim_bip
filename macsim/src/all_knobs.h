@@ -534,7 +534,11 @@ class all_knobs_c {
 		KnobTemplate< bool >* KNOB_HETERO_MEM_PRIORITY_CPU;
 		KnobTemplate< bool >* KNOB_HETERO_MEM_PRIORITY_GPU;
 		KnobTemplate< bool >* KNOB_CACHE_USE_PSEUDO_LRU;
-		KnobTemplate< int >* KNOB_LOAD_BUF_SIZE;
+		
+    // (SE/ALR) decides whether to use BIP or not
+    KnobTemplate< bool >* KNOB_CACHE_USE_BIP; 	
+		
+    KnobTemplate< int >* KNOB_LOAD_BUF_SIZE;
 		KnobTemplate< int >* KNOB_STORE_BUF_SIZE;
 		KnobTemplate< bool >* KNOB_USE_INCOMING_TID_CID_FOR_WB;
 		KnobTemplate< bool >* KNOB_DEFAULT_INTERLEAVING;
