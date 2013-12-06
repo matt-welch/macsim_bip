@@ -52,6 +52,14 @@ POSSIBILITY OF SUCH DAMAGE.
 #define DEBUG(args...) _DEBUG(*m_simBase->m_knobs->KNOB_DEBUG_CACHE_LIB, ## args)
 #define DEBUG_MEM(args...) _DEBUG(*m_simBase->m_knobs->KNOB_DEBUG_MEM_TRACE, ## args)
 
+/*
+ * (SE/AR) Epsilon values used by the TAP-BIP policy. TODO: Take these values as an input from
+ * the params.in file.
+ */
+
+#define CPU_EPSILON 32
+#define GPU_EPSILON 32
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -347,8 +355,13 @@ cache_entry_c* cache_c::find_replacement_line_from_same_type(int set, int appl_i
 void cache_c::initialize_cache_line(cache_entry_c *ins_line, Addr tag, Addr addr, int appl_id,
     bool gpuline, int set_id, bool skip) 
 {
-  cout << "\nTesting USE_BIP value: " << *m_simBase->m_knobs->KNOB_CACHE_USE_BIP;
-  if(0){  // (SE) temporary hack to implement BIP (remove if want to use LRU/PSEUDO_LRU)
+  /*
+   * (SE/AR) Quick hack to disable the default pseudo-LRU insertion policy.
+   * TODO: Decide whether to use pseudo LRU/TAP-BIP based on a parameter set
+   * in the params.in file.
+   */
+
+  if(0){  
     ins_line->m_valid            = true;
     ins_line->m_tag              = tag;
     ins_line->m_base             = (addr & ~m_offset_mask);
@@ -368,9 +381,7 @@ void cache_c::initialize_cache_line(cache_entry_c *ins_line, Addr tag, Addr addr
       ++m_num_cpu_line;
       ++m_set[set_id]->m_num_cpu_line;
     }
-  }else{  // (SE/AR) BEGIN implement BIP for GPU and CPU    
-    int GPU_EPSILON = 32;
-    int CPU_EPSILON = 32;
+  } else{  // (SE/AR) BEGIN implement BIP for GPU and CPU    
     if(gpuline){  
       if(m_bip_gpu_count < GPU_EPSILON){    // Insert at LRU    
         m_bip_gpu_count++;      

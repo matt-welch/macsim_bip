@@ -327,6 +327,13 @@ class cache_c
     int     m_interleave_factor; /**< granularity of interleaving across tiles */
     int     m_interleave_bits;   /**< number of bits taken by interleaving factor */
     Addr    m_interleave_mask;   /**< interleave factor mask */
+
+    /*
+     * (SE/AR) Counters which keep track of the number of cache lines that are currently
+     * in the LRU position. Whenever these counters reach CPU_EPSILON or GPU_EPISLON
+     * respectively, they will be reset.
+     */
+
 	int		m_bip_cpu_count;	 /**< counter for BIP for CPU lines */
 	int 	m_bip_gpu_count;	 /**< counter for BIP for GPU lines */
   
